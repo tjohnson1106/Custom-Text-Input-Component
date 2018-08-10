@@ -12,6 +12,24 @@ class MinMaxTextInput extends Component {
     return numCharacters == 1 ? "character" : "characters";
   };
 
+  getCharacterMessage = numCharacters => {
+    return `${numCharacters}   ${this.getCharacterMessage(
+      numCharacters
+    )} needed`;
+  };
+  // x more characters needed
+  getMoreCharactersMessage = numCharacters => {
+    return `${numCharacters} more   ${this.getCharacterMessage(
+      numCharacters
+    )} needed`;
+  };
+  // x character remaining
+  getMoreCharactersRemainingMessage = numCharacters => {
+    return `${numCharacters}   ${this.getCharacter(
+      numCharacters
+    )} remaining`;
+  };
+
   renderMessage() {
     var len = this.props.value ? this.props.value.length : 0;
     var msg = "";
@@ -31,7 +49,7 @@ class MinMaxTextInput extends Component {
         msg = this.getCharacterMessage(this.props.minLength);
         return <Text style={styles.neutralText}>{msg}</Text>;
       }
-
+      // User does not have enough characters
       if (len < this.props.minLength && len > 0) {
         msg = this.getMoreCharactersMessage(
           this.props.minLength - len
@@ -40,27 +58,11 @@ class MinMaxTextInput extends Component {
       }
     }
 
-    msg = this.getCharacterMessage(10);
+    return <View />;
+
+    msg = this.getCharacterMessage(1);
     return <Text>{msg}</Text>;
   }
-
-  getCharacterMessage = numCharacters => {
-    return `${numCharacters}   ${this.getCharacterMessage(
-      numCharacters
-    )} needed`;
-  };
-  // x more characters needed
-  getMoreCharactersMessage = numCharacters => {
-    return `${numCharacters} more   ${this.getCharacterMessage(
-      numCharacters
-    )} needed`;
-  };
-  // x character remaining
-  getMoreCharactersRemainingMessage = numCharacters => {
-    return `${numCharacters}   ${this.getCharacterMessage(
-      numCharacters
-    )} remaining`;
-  };
 
   render() {
     return (
@@ -76,9 +78,12 @@ class MinMaxTextInput extends Component {
 }
 
 const styles = StyleSheet.create({
-  neutralText: {},
+  neutralText: {
+    paddingTop: 5
+  },
   invalidText: {
-    color: "orange"
+    color: "orange",
+    paddingTop: 5
   }
 });
 

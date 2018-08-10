@@ -21,7 +21,7 @@ export default class App extends React.Component {
             onChangeText={text => {
               this.setState({ textInputValue: text });
             }}
-            minLength={3}
+            minLength={0}
             maxLenghth={5}
           />
         </View>
