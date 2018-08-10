@@ -1,0 +1,40 @@
+Arguments: 
+  /home/thomas/.nvm/versions/node/v8.11.3/bin/node /usr/share/yarn/bin/yarn.js add proptypes
+
+PATH: 
+  /home/thomas/.nvm/versions/node/v8.11.3/bin:/home/thomas/.local/share/umake/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/thomas/Android/tools:/home/thomas/Android/platform-tools
+
+Yarn version: 
+  1.7.0
+
+Node version: 
+  8.11.3
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/thomas/.cache/yarn/v1/npm-art-0.10.3-b01d84a968ccce6208df55a733838c96caeeaea2/.yarn-metadata.json: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/cli.js:1130:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/cli.js:98:30)
+      at /usr/share/yarn/lib/cli.js:109:13
+      at <anonymous>
+
+npm manifest: 
+  {
+    "main": "node_modules/expo/AppEntry.js",
+    "private": true,
+    "dependencies": {
+      "expo": "^28.0.0",
+      "react": "16.3.1",
+      "react-native": "https://github.com/expo/react-native/archive/sdk-28.0.0.tar.gz"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
