@@ -1,15 +1,25 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TextInput } from "react-native";
 
 class MinMaxTextInput extends Component {
-  state = {};
+  static defaultProps = {
+    minLength: 0,
+    maxLength: 999
+  };
   render() {
     return (
-      <View>
-        <Text>Min Max</Text>
+      <View style={styles.root}>
+        <TextInput {...this.props} />
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    padding: 20
+  }
+});
 
 export default MinMaxTextInput;

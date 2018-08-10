@@ -4,10 +4,25 @@ import { StyleSheet, Text, View } from "react-native";
 import MinMaxTextInput from "./src/components/MinMaxTextInput";
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      textInputValue: ""
+    };
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <MinMaxTextInput />
+        <View style={styles.innerContainer}>
+          <MinMaxTextInput
+            style={styles.input}
+            value={this.state.textInputValue}
+            onChangeText={text => {
+              this.setState({ textInputValue: text });
+            }}
+          />
+        </View>
       </View>
     );
   }
@@ -16,9 +31,14 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    padding: 20
+  },
+  innerContainer: {
     padding: 50
+  },
+  input: {
+    borderWidth: 1,
+    height: 40,
+    width: 200
   }
 });
