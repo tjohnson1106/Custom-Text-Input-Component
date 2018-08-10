@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
     height: 40,
-    width: 200
+    width: 200,
+    padding: 5
   }
 });

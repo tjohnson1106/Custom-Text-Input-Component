@@ -8,18 +8,11 @@ class MinMaxTextInput extends Component {
   };
   render() {
     return (
-      <View style={styles.root}>
+      <View>
         <TextInput {...this.props} />
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    padding: 20
-  }
-});
 
 export default MinMaxTextInput;
