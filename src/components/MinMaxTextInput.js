@@ -19,11 +19,24 @@ class MinMaxTextInput extends Component {
     // User has max # of characters
     if (len == this.props.maxLength) {
       return <View />;
-
+      // User has more than min number of characters
       if (len >= this.props.minLength) {
         msg = this.getMoreCharactersRemainingMessage(
           this.props.maxLength - len
         );
+        return <Text style={styles.neutralText}>{msg}</Text>;
+      }
+      // User does not have enough characters, has not started typing
+      if (len < this.props.minLength && len == 0) {
+        msg = this.getCharacterMessage(this.props.minLength);
+        return <Text style={styles.neutralText}>{msg}</Text>;
+      }
+
+      if (len < this.props.minLength && len > 0) {
+        msg = this.getMoreCharactersMessage(
+          this.props.minLength - len
+        );
+        return <Text style={styles.invalidText}>{msg}</Text>;
       }
     }
 
@@ -52,8 +65,11 @@ class MinMaxTextInput extends Component {
   render() {
     return (
       <View>
-        <TextInput {...this.props} />
-        {this.renderMessage}
+        <TextInput
+          {...this.props}
+          underlineColorAndroid="transparent"
+        />
+        {this.renderMessage()}
       </View>
     );
   }
